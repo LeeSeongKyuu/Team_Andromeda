@@ -1,7 +1,7 @@
 # Team_Andromeda
 
 
-##TEAM Member   
+## Team Member   
 2019038090 이성규   
 2019038072 양희진   
 2019038048 심지연   
