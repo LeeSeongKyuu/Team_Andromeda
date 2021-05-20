@@ -13,10 +13,22 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+//지도 api import할것
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button scanBtn;
-
+   private GoogleMap mMap;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +36,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         scanBtn = findViewById(R.id.scanBtn);
         scanBtn.setOnClickListener(this);
-
-
+    
+        //지도 code
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+        //지도code
     }
 
     @Override
@@ -43,7 +59,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        
         if (result !=null){
             if (result.getContents() != null){
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -73,5 +91,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+  @Override
+    public void onMapReady(final GoogleMap googleMap) {
 
+        mMap = googleMap;
+        
+        //서울 좌표(변수로 현재위치로 바꾸면 좋을듯)
+        LatLng SEOUL = new LatLng(37.56, 126.97);
+
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(SEOUL);
+        markerOptions.title("서울");
+        markerOptions.snippet("한국의 수도");
+        mMap.addMarker(markerOptions);
+
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SEOUL, 10));
+
+
+    }
 }
