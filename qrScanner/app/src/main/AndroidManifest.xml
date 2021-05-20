@@ -20,6 +20,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        //지도
+        <meta-data
+
+            android:name="com.google.android.geo.API_KEY"
+
+            android:value="AIzaSyBT5hZwb2kWedA9O87z7ciih8lDm1mZW48" />
+        //지도
+        
         <activity android:name=".CaptureActivity"
             android:screenOrientation="fullSensor"
             android:stateNotNeeded="true"
