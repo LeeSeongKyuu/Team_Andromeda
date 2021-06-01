@@ -77,7 +77,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 switch(item.getItemId()){
                     case R.id.weather:
                         startActivity(new Intent(getApplicationContext()
-                                ,Weather.class));
+                                , WeatherActivity.class));
                         overridePendingTransition(0,0);
                         return true;
 
@@ -89,7 +89,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                     case R.id.mypage:
                         startActivity(new Intent(getApplicationContext()
-                                ,Mypage.class));
+                                , MypageActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                 }

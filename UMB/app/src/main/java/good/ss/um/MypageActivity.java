@@ -9,16 +9,18 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Weather extends AppCompatActivity {
+public class MypageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_weather);
+        setContentView(R.layout.activity_mypage);
+
+        //Initialize & assign variable
 
         BottomNavigationView bottomNavigationView =findViewById(R.id.bottom_navigation);
         //set home selected
-        bottomNavigationView.setSelectedItemId((R.id.weather));
+        bottomNavigationView.setSelectedItemId((R.id.mypage));
 
         //perform itemselectedlistner
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -26,6 +28,9 @@ public class Weather extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch(item.getItemId()){
                     case R.id.weather:
+                        startActivity(new Intent(getApplicationContext()
+                                , WeatherActivity.class));
+                        overridePendingTransition(0,0);
                         return true;
 
                     case R.id.home:
@@ -35,9 +40,6 @@ public class Weather extends AppCompatActivity {
                         return true;
 
                     case R.id.mypage:
-                        startActivity(new Intent(getApplicationContext()
-                                ,Mypage.class));
-                        overridePendingTransition(0,0);
                         return true;
                 }
                 return false;

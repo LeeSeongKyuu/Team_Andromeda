@@ -2,7 +2,6 @@ package good.ss.um;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 switch(item.getItemId()){
                     case R.id.weather:
                         startActivity(new Intent(getApplicationContext()
-                                ,Weather.class));
+                                , WeatherActivity.class));
                         overridePendingTransition(0,0);
                         return true;
 
@@ -54,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.mypage:
                         startActivity(new Intent(getApplicationContext()
-                                ,Mypage.class));
+                                , MypageActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                 }
