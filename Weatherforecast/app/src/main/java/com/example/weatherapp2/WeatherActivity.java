@@ -26,7 +26,7 @@ import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 
-public class MainActivity extends AppCompatActivity {
+public class WeatherActivity extends AppCompatActivity {
 
     final String APP_ID = "35fa52237b445853eb27ad9fa57c76cd";
     final String WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather";
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_weather);
 
         weatherState = findViewById(R.id.weatherCondition);
         Temperature = findViewById(R.id.temperature);
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         mCityFinder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, cityFinder.class);
+                Intent intent = new Intent(WeatherActivity.this, cityFinder.class);
                 startActivity(intent);
             }
         });
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode==REQUEST_CODE)
         {
             if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
-                Toast.makeText(MainActivity.this, "Locationget Successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(WeatherActivity.this, "Locationget Successfully", Toast.LENGTH_SHORT).show();
                 getWeatherForCurrentLocation();
             }
             else
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
         {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Toast.makeText(MainActivity.this,"Data Get Success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(WeatherActivity.this,"Data Get Success", Toast.LENGTH_SHORT).show();
 
                 weatherData weatherD=weatherData.fromJson(response);
                 updateUI(weatherD);
