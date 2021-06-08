@@ -24,6 +24,7 @@
         <activity android:name=".MapsActivity" />
         <activity android:name=".MypageActivity" />
         <activity android:name=".WeatherActivity" />
+        <activity android:name=".CityFinder"/>
 
         <activity android:name=".LoginActivity">
             <intent-filter>
