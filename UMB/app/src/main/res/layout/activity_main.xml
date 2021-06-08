@@ -36,4 +36,37 @@
         tools:context=".MapsActivity"
         />
 
+    <Button
+        android:id="@+id/btn_startRent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="160dp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="530dp"
+        android:text="대여하기" />
+
+    <Button
+        android:id="@+id/btn_startReturn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="160dp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="594dp"
+        android:text="반납하기" />
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="310dp"
+        android:layout_marginTop="19dp"
+        android:text="Logout"
+        android:textSize="10sp" />
+
 </RelativeLayout>
