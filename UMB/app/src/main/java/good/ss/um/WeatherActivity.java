@@ -19,18 +19,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 
 public class WeatherActivity extends AppCompatActivity {
+
     final String APP_ID = "35fa52237b445853eb27ad9fa57c76cd";
     final String WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather";
 
@@ -47,6 +46,7 @@ public class WeatherActivity extends AppCompatActivity {
 
     LocationManager mLocationManager;
     LocationListener mLocationListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,13 +93,37 @@ public class WeatherActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
-    @Override
+
+    /*@Override
     protected void onResume() {
         super.onResume();
         getWeatherForCurrentLocation();
+    }*/
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Intent mIntent=getIntent();
+        String city= mIntent.getStringExtra("City");
+        if(city!=null){
+            getWeatherForNewCity(city);
+
+
+        }
+        else{
+            getWeatherForCurrentLocation();
+        }
+
     }
+
+    private void getWeatherForNewCity(String city){
+        RequestParams params=new RequestParams();
+        params.put("q", city);
+        params.put("appid",APP_ID);
+        letsdoSomeNetworking(params);
+    }
+
 
     private void getWeatherForCurrentLocation() {
         mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -155,7 +179,7 @@ public class WeatherActivity extends AppCompatActivity {
         if(requestCode==REQUEST_CODE)
         {
             if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
-                Toast.makeText(WeatherActivity.this, "Locationget Successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(WeatherActivity.this, "Location get Successfully", Toast.LENGTH_SHORT).show();
                 getWeatherForCurrentLocation();
             }
             else
@@ -172,7 +196,6 @@ public class WeatherActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Toast.makeText(WeatherActivity.this,"Data Get Success", Toast.LENGTH_SHORT).show();
-
                 WeatherData weatherD=WeatherData.fromJson(response);
                 updateUI(weatherD);
                 //super.onSuccess(statusCode, headers, response);
@@ -185,11 +208,11 @@ public class WeatherActivity extends AppCompatActivity {
         });
     }
 
-    private void updateUI(WeatherData weather){
-        Temperature.setText(weather.getmTemperature());
-        NameofCity.setText(weather.getmCity());
-        weatherState.setText(weather.getmWeatherType());
-        int resourceID=getResources().getIdentifier(weather.getmIcon(),"drawable", getPackageName());
+    private void updateUI(WeatherData Weather){
+        Temperature.setText(Weather.getmTemperature());
+        NameofCity.setText(Weather.getmCity());
+        weatherState.setText(Weather.getmWeatherType());
+        int resourceID=getResources().getIdentifier(Weather.getmIcon(),"drawable", getPackageName());
         mweatherIcon.setImageResource(resourceID);
     }
 
