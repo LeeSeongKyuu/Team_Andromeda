@@ -15,7 +15,7 @@ public class RentselectActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mypage);
+        setContentView(R.layout.activity_rentselect);
 
         //Initialize & assign variable
 

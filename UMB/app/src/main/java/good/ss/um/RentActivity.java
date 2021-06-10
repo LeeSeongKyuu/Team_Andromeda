@@ -167,7 +167,7 @@ public class RentActivity extends AppCompatActivity {
                     user post = dataSnapshot.getValue(user.class);
                     Log.w("FireBaseData", "getData" + post.toString());
                 } else {
-                    Toast.makeText(RentActivity.this, "데이터 없음...", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(RentActivity.this, "데이터 없음...", Toast.LENGTH_SHORT).show();
                 }
             }
 
