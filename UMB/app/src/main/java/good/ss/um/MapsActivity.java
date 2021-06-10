@@ -24,6 +24,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -50,6 +51,25 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             mMap.getUiSettings().setZoomControlsEnabled(true);
 
         }
+        //지도에 마커띄우기
+        LatLng cbnu_s4_1 = new LatLng(36.625698,127.454405);
+        googleMap.addMarker(new MarkerOptions()
+                .position(cbnu_s4_1)
+                .title("충북대 s4-1 대여소")
+                .snippet("우산 2개 보유"));
+
+
+        LatLng cbnu_library = new LatLng(36.628404,127.457398);
+        googleMap.addMarker(new MarkerOptions()
+                .position(cbnu_library)
+                .title("충북대 중앙도서관 대여소")
+                .snippet("우산 1개 보유"));
+
+        LatLng cbnu_coresidence = new LatLng(36.631461,127.457711);
+        googleMap.addMarker(new MarkerOptions()
+                .position(cbnu_coresidence)
+                .title("충북대 본관 기숙사 대여소")
+                .snippet("우산 4개 보유"));
     }
 
     private static final String TAG = "MapsActivity";
