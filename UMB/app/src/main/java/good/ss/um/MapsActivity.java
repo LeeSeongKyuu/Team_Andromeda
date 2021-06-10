@@ -81,13 +81,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         googleMap.addMarker(new MarkerOptions()
                 .position(cbnu_library)
                 .title("충북대 중앙도서관 대여소")
-                .snippet("우산 1개 보유"));
+                .snippet("우산 0개 보유"));
 
         LatLng cbnu_coresidence = new LatLng(36.631461,127.457711);
         googleMap.addMarker(new MarkerOptions()
                 .position(cbnu_coresidence)
                 .title("충북대 본관 기숙사 대여소")
-                .snippet("우산 4개 보유"));
+                .snippet("우산 1개 보유"));
     }
 
 

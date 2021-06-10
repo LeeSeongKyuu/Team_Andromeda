@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:itemBackground="@color/cardview_dark_background"
+        app:itemBackground="@drawable/gredient_navbar"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         app:menu="@menu/menu_navigation" />
@@ -31,7 +31,7 @@
         app:uiRotateGestures="true"
         app:uiScrollGestures="false"
         app:uiTiltGestures="true"
-        app:uiZoomControls="false"
+        app:uiZoomControls="true"
         app:uiZoomGestures="true"
         tools:context=".MapsActivity"
         />
