@@ -91,7 +91,7 @@
         app:srcCompat="@drawable/_10d" />
 
     <ImageButton
-        android:id="@+id/day12rent"
+        android:id="@+id/day14rent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
