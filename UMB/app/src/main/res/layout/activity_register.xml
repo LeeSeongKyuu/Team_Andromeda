@@ -34,7 +34,7 @@
 
     <Button
         android:id="@+id/btn_register"
-        android:layout_width="0dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="가입완료"
         app:layout_constraintBottom_toBottomOf="parent"
