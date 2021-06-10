@@ -19,10 +19,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UMB">
-        <activity android:name="com.journeyapps.barcodescanner.CaptureActivity"
+        <activity android:name=".CardinfoActivity"></activity>
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
-            tools:replace="screenOrientation"/>
-        <activity android:name=".RentselectActivity"></activity>
+            tools:replace="screenOrientation" />
+        <activity android:name=".RentselectActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ReturnActivity" />
@@ -30,7 +32,7 @@
         <activity android:name=".MapsActivity" />
         <activity android:name=".MypageActivity" />
         <activity android:name=".WeatherActivity" />
-        <activity android:name=".CityFinder"/>
+        <activity android:name=".CityFinder" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
