@@ -31,6 +31,24 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
+
+    private static final String TAG = "MapsActivity";
+
+    private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
+    private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
+    private static final float DEFAULT_ZOOM = 15f;
+
+    //vars
+    private Boolean mLocationPermissionsGranted = false;
+    private GoogleMap mMap;
+    private FusedLocationProviderClient mFusedLocationProviderClient;
+
+    private Button btn_startRent;
+    private Button btn_startReturn;
+    private Button btn_logout;
+    private FirebaseAuth mFirebaseAuth;
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         Toast.makeText(this, "Map is Ready", Toast.LENGTH_SHORT).show();
@@ -51,13 +69,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             mMap.getUiSettings().setZoomControlsEnabled(true);
 
         }
+
         //지도에 마커띄우기
         LatLng cbnu_s4_1 = new LatLng(36.625698,127.454405);
         googleMap.addMarker(new MarkerOptions()
                 .position(cbnu_s4_1)
                 .title("충북대 s4-1 대여소")
                 .snippet("우산 2개 보유"));
-
 
         LatLng cbnu_library = new LatLng(36.628404,127.457398);
         googleMap.addMarker(new MarkerOptions()
@@ -72,22 +90,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet("우산 4개 보유"));
     }
 
-    private static final String TAG = "MapsActivity";
-
-    private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
-    private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
-    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
-    private static final float DEFAULT_ZOOM = 15f;
-
-    //vars
-    private Boolean mLocationPermissionsGranted = false;
-    private GoogleMap mMap;
-    private FusedLocationProviderClient mFusedLocationProviderClient;
-
-    private Button btn_startRent;
-    private Button btn_startReturn;
-    private Button btn_logout;
-    private FirebaseAuth mFirebaseAuth;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
