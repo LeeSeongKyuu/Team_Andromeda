@@ -52,6 +52,16 @@ public class RentActivity extends AppCompatActivity {
 
         btn_save = findViewById(R.id.btn_rent);
 
+        //btn_rent 버튼 클릭시 RentselectActivity로 전환
+        Button rent_btn = (Button) findViewById(R.id.btn_rent);
+        rent_btn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick (View view){
+                Intent intent = new Intent(getApplicationContext(), RentselectActivity.class);
+                startActivity(intent);
+            }
+        });
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
