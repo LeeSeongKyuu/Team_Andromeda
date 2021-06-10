@@ -82,6 +82,8 @@ public class RentActivity extends AppCompatActivity {
                 a = a+1;
                 writeNewUser(a,getuserLocation,getUserUmbrella,getUserName);
 
+                Intent intent = new Intent(getApplicationContext(), RentselectActivity.class);
+                startActivity(intent);
             }
         });
 
