@@ -62,10 +62,11 @@
 
     <RelativeLayout
         android:id="@+id/cityFinder"
-        android:layout_width="match_parent"
+        android:layout_width="280dp"
         android:layout_height="40dp"
+        android:layout_centerInParent="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/buttondesign">
 
         <TextView
