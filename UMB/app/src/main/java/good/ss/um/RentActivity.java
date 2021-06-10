@@ -146,7 +146,7 @@ public class RentActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         // Write was successful!
-                        Toast.makeText(RentActivity.this, "우산대여가 시작되었습니다.", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(RentActivity.this, "우산대여가 시작되었습니다.", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

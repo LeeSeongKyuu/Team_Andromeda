@@ -24,7 +24,7 @@ public class CardinfoActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"결제가 완료되었습니다", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"결제가 완료되었습니다. 우산 대여를 시작합니다.", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
