@@ -95,6 +95,7 @@ public class RentActivity extends AppCompatActivity {
 
         //intializing scan object
         qrScan = new IntentIntegrator(this);
+        qrScan.setOrientationLocked(false);
 
         //button onClick
         btn_qrScan.setOnClickListener(new View.OnClickListener() {
