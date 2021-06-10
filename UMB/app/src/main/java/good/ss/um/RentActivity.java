@@ -34,6 +34,8 @@ public class RentActivity extends AppCompatActivity {
     private Button btn_qrScan,btn_save;
     private TextView textViewLocation, textViewUmbrella, textViewName;
     int a = 0;
+    long startTime;
+
 
     //qr code scanner object
     private IntentIntegrator qrScan;
@@ -46,6 +48,7 @@ public class RentActivity extends AppCompatActivity {
 
         //Intent intent = getIntent();
 
+        RentTimeVar GlobalVar = (RentTimeVar) getApplication();
 
         btn_save = findViewById(R.id.btn_rent);
 
@@ -63,6 +66,8 @@ public class RentActivity extends AppCompatActivity {
                 String getUserUmbrella = textViewUmbrella.getText().toString();
                 String getUserName = textViewName.getText().toString();
 
+                startTime = System.currentTimeMillis();
+                GlobalVar.setGlobalValue(startTime);
                 //hashmap 만들기
                 HashMap result = new HashMap<>();
                 result.put("위치", getuserLocation);

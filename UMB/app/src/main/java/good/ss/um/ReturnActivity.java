@@ -23,16 +23,20 @@ public class ReturnActivity extends AppCompatActivity {
 
     int a = 0;
 
-    private TextView textViewLocation, textViewUmbrella, textViewName;
+    private TextView textViewLocation, textViewUmbrella, textViewName, textViewUsingTime;
     private Button btn_info;
     private Button btn_return;
     private DatabaseReference userUmDb;
     private DatabaseReference returnUmDb;
+    //private String usingtime="00시00분13초";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_return);
+
+        RentTimeVar GlobalVar = (RentTimeVar) getApplication();
 
         btn_info = (Button) findViewById(R.id.btn_info);
         btn_return = (Button) findViewById(R.id.btn_return);
@@ -40,11 +44,17 @@ public class ReturnActivity extends AppCompatActivity {
         textViewLocation = (TextView) findViewById(R.id.textViewLocation_return);
         textViewUmbrella = (TextView) findViewById(R.id.textViewUmbrella_return);
         textViewName = (TextView)  findViewById(R.id.textViewName_return);
+        textViewUsingTime = (TextView)  findViewById(R.id.textViewName_usingtime);
 
         //대여 정보 확인 버튼
         btn_info.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+
+                long endTime = System.currentTimeMillis();
+                long usingTime=(endTime-GlobalVar.getGlobalValue())/1000;
+                textViewUsingTime.setText(usingTime/86400+"일 "+usingTime%86400/3600+"시 "+usingTime%3600/60+"분 "+usingTime%3600%60+"초" );
                 userUmDb= FirebaseDatabase.getInstance().getReference().child("users").child("1");
                 userUmDb.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -52,9 +62,12 @@ public class ReturnActivity extends AppCompatActivity {
                         String location = dataSnapshot.child("userLocation").getValue().toString();
                         String umbrella = dataSnapshot.child("userUmbrella").getValue().toString();
                         String name = dataSnapshot.child("userName").getValue().toString();
+
                         textViewLocation.setText(location);
                         textViewUmbrella.setText(umbrella);
                         textViewName.setText(name);
+
+
 
 
                     }

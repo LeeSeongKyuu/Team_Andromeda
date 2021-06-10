@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#232343"
+    android:background="@color/white"
     tools:context=".CityFinder">
 
     <ImageView
@@ -15,6 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
+        android:id="@+id/backButton"
         android:src="@drawable/left">
 
     </ImageView>
