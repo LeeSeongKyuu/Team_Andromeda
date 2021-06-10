@@ -6,16 +6,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MypageActivity extends AppCompatActivity {
 
+    private TextView textviewUsingTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mypage);
-
+        textviewUsingTime = (TextView)  findViewById(R.id.myrenttimeis);
+        RentTimeVar GlobalVar = (RentTimeVar) getApplication();
+        long endTime = System.currentTimeMillis();
+        long usingTime=(endTime-GlobalVar.getGlobalValue())/1000;
+        textviewUsingTime.setText(usingTime/86400+"days "+usingTime%86400/3600+"h "+usingTime%3600/60+"m "+usingTime%3600%60+"s");
         //Initialize & assign variable
 
         BottomNavigationView bottomNavigationView =findViewById(R.id.bottom_navigation);

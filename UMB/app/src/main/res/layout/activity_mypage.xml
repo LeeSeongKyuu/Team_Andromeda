@@ -58,7 +58,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="45dp"
         android:layout_marginTop="205dp"
-        android:text="email: Andromeda@naver.com"
+        android:text="email: qwer@naver.com"
         android:textSize="20sp" />
 
     <TextView
@@ -82,7 +82,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="3dp"
         android:layout_marginEnd="152dp"
-        android:layout_marginBottom="342dp"
+        android:layout_marginBottom="330dp"
         app:srcCompat="@drawable/_7d" />
 
     <TextView
@@ -92,12 +92,12 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="410dp"
         android:text="대여시간"
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <TextView
+    <EditText
         android:id="@+id/myrenttimeis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

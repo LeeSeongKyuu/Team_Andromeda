@@ -12,7 +12,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class RentselectActivity extends AppCompatActivity {
 
-    TextView
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
