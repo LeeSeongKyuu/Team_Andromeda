@@ -17,15 +17,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UMB">
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".RentselectActivity"></activity>
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ReturnActivity" />
         <activity android:name=".RentActivity" />
         <activity android:name=".MapsActivity" />
         <activity android:name=".MypageActivity" />
         <activity android:name=".WeatherActivity" />
-        <activity android:name=".CityFinder"/>
-
+        <activity android:name=".CityFinder" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
